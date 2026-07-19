@@ -22,22 +22,24 @@ def add_activity() -> None:
 
 
 #funzione per mostrare le attivitá salvate nel file data.txt(2)
-def show_activities():
+def show_activities() -> None:
+    """Display all saved activities."""
+
     try:
-        with open(DATA_FILE, "r") as file:
-            lines = file.readlines()
-
-        print("\n---- YOUR ACTIVITIES ----")
-
-        if len(lines) == 0:
-            print("No activities yet.")
-            return
-
-        for i, line in enumerate(lines):
-            print(f"{i+1}. {line.strip()}")
-
+        with open(DATA_FILE, "r", encoding="utf-8") as file:
+            activities = file.readlines()
     except FileNotFoundError:
-        print("No data found yet.")
+        print("No activities found yet.")
+        return
+
+    if not activities:
+        print("No activities yet.")
+        return
+
+    print("\n---- YOUR ACTIVITIES ----")
+
+    for index, activity in enumerate(activities, start=1):
+        print(f"{index}. {activity.strip()}")
   
 
 #funzione per eliminare un'attivitá dal file data.txt(3)
