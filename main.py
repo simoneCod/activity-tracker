@@ -1,45 +1,40 @@
-from tracker import *
+from tracker import (
+    add_activity,
+    delete_activities,
+    search_activity,
+    show_activities,
+)
 
 
-# variabile ciclo while
-running = True 
+def main() -> None:
+    """Run the Activity Tracker command-line menu."""
 
-#menú
-while running:
-    scelta = input("""
- 1 - add activity
- 2 - show activities
- 3 - delete activity
- 4 - search activity
- 10 - exit  
-                                              
- """)
+    while True:
+        choice = input(
+            """
+1 - Add activity
+2 - Show activities
+3 - Delete activity
+4 - Search activity
+10 - Exit
 
-    #scelta che termina il programma
-    if scelta == "10":
-         print("Exit...")
-         running = False
+Choose an option: """
+        ).strip()
 
-    #scelta che aggiuunge un'attivitá al file data.txt
-    elif scelta == "1":
+        if choice == "1":
             add_activity()
-
-    #scelta che mostra le attivitá salvate nel file data.txt
-    elif scelta == "2":
+        elif choice == "2":
             show_activities()
-
-    #eliminazione di un'attivitá dal file data.txt
-    elif scelta == "3":
+        elif choice == "3":
             delete_activities()
+        elif choice == "4":
+            search_activity()
+        elif choice == "10":
+            print("Exit...")
+            break
+        else:
+            print("Invalid option. Please try again.")
 
-    #ricerca di un'attivitá nel file data.txt
-    elif scelta == "4":
-            search_activity()   
-            
 
-
-
-    #scelta che gestisce l'input non valido
-    else:
-        print("invalid option")
-  
+if __name__ == "__main__":
+    main()

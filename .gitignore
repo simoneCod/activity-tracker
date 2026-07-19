@@ -1,0 +1,13 @@
+# Local application data
+data.txt
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# Virtual environments
+.venv/
+venv/
+
+# Editor files
+.vscode/

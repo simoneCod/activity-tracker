@@ -1,31 +1,84 @@
 # Activity Tracker
 
-Simple Python CLI project to track daily activities.
+A simple command-line application written in Python to record and manage daily activities.
 
 ## Features
 
-- Add activities with date
-- View all activities
-- Search activities
-- Delete activities
-- Persistent storage using a text file
+- Add a new activity with the current date
+- View all saved activities
+- Search activities by keyword
+- Delete one or more activities
+- Store data persistently in a text file
+- Handle missing files and invalid user input
 
-## How to run
+## Technologies
+
+- Python 3
+- Command-line interface
+- Functions
+- Loops and conditionals
+- Lists
+- File handling
+- Exception handling
+
+## Project Structure
+
+```text
+activity-tracker/
+├── main.py
+├── tracker.py
+├── data.example.txt
+├── .gitignore
+└── README.md
+```
+
+## How to Run
+
+The application automatically creates a local `data.txt` file when the first activity is saved. This file is ignored by Git to avoid publishing personal data.
+
+1. Make sure Python 3 is installed.
+2. Clone the repository.
+3. Open a terminal inside the project folder.
+4. Run:
 
 ```bash
 python main.py
+```
 
-Technologies
-Python 3
-File handling
-CLI interface
+## Menu
 
-Purpose
-This project was built as a learning exercise to practice Python fundamentals:
+```text
+1 - Add activity
+2 - Show activities
+3 - Delete activity
+4 - Search activity
+10 - Exit
+```
 
-file I/O
-functions
-loops
-conditionals
-basic data structures
+## Purpose
 
+This project was created to practice Python fundamentals by building a complete command-line application with persistent data storage.
+
+Through this project, I practiced:
+
+- organizing code into separate files;
+- creating and calling functions;
+- reading and writing text files;
+- validating user input;
+- handling errors with `try` and `except`;
+- working with lists and loops.
+
+## Future Improvements
+
+- Add activity categories
+- Edit existing activities
+- Store data in JSON or SQLite
+- Add automated tests
+- Improve input validation
+
+## Author
+
+**Simone Serio**
+
+Diploma in Informatics  
+Currently learning Linux, networking, Python and IT infrastructure.
