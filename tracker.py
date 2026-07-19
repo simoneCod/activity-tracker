@@ -4,14 +4,21 @@ DATA_FILE = "data.txt"
 
 
 #funzione per aggiungere un'attivitá al file data.txt(1)
-def add_activity():
-      today = date.today()
-      name = input("what did you do today?").strip().capitalize()
+def add_activity() -> None:
+    """Ask the user for an activity and save it with today's date."""
 
-      with open(DATA_FILE, "a") as file:
-             file.write(f"{today} | {name}\n")
+    activity_name = input("What did you do today? ").strip()
 
-             print("Saved!")
+    if not activity_name:
+        print("Activity cannot be empty.")
+        return
+
+    today = date.today()
+
+    with open(DATA_FILE, "a", encoding="utf-8") as file:
+        file.write(f"{today} | {activity_name}\n")
+
+    print("Activity saved!")
 
 
 #funzione per mostrare le attivitá salvate nel file data.txt(2)
