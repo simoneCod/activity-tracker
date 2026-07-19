@@ -92,33 +92,37 @@ def delete_activities():
             
 
 #funzione per cercare un'attivitá nel file data.txt(4)
-def search_activity():
-     try:
-        with open(DATA_FILE, "r")as file:
-             lines = file.readlines()
-        
-        if len(lines) == 0:
-             print("No activities to search.")
-             return
-        
-        search_result = []
-        search = input("Enter the activity that you're loking for: ").strip().lower()
+def search_activity() -> None:
+    """Search saved activities by keyword."""
 
-        for line in lines:
-             if search in line.lower(): 
-                 search_result.append(line)
-         
-        if len(search_result) == 0:
-             print("No matching activities found.")
-             return     
-        
-        print("\n---- SEARCH RESULTS ----")
-        print("Found", len(search_result), "activities \n")
+    try:
+        with open(DATA_FILE, "r", encoding="utf-8") as file:
+            activities = file.readlines()
+    except FileNotFoundError:
+        print("No activities found yet.")
+        return
 
-        for activities in search_result:
-          print(activities.strip())
-        
-      
+    if not activities:
+        print("No activities to search.")
+        return
 
-     except FileNotFoundError:
-         print("No data file found.")  
+    keyword = input("Enter an activity to search for: ").strip().lower()
+
+    if not keyword:
+        print("Search term cannot be empty.")
+        return
+
+    matching_activities = [
+        activity
+        for activity in activities
+        if keyword in activity.lower()
+    ]
+
+    if not matching_activities:
+        print("No matching activities found.")
+        return
+
+    print(f"\n---- SEARCH RESULTS ({len(matching_activities)}) ----")
+
+    for activity in matching_activities:
+        print(activity.strip())
