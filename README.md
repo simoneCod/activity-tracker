@@ -27,11 +27,14 @@ A simple command-line application written in Python to record and manage daily a
 activity-tracker/
 ├── main.py
 ├── tracker.py
-├── data.txt
+├── data.example.txt
+├── .gitignore
 └── README.md
 ```
 
 ## How to Run
+
+The application automatically creates a local `data.txt` file when the first activity is saved. This file is ignored by Git to avoid publishing personal data.
 
 1. Make sure Python 3 is installed.
 2. Clone the repository.
