@@ -1,13 +1,14 @@
 from datetime import date
 
-#funzioni 
+DATA_FILE = "data.txt"
+
 
 #funzione per aggiungere un'attivitá al file data.txt(1)
 def add_activity():
       today = date.today()
       name = input("what did you do today?").strip().capitalize()
 
-      with open("data.txt", "a")as file:
+      with open(DATA_FILE, "a") as file:
              file.write(f"{today} | {name}\n")
 
              print("Saved!")
@@ -16,7 +17,7 @@ def add_activity():
 #funzione per mostrare le attivitá salvate nel file data.txt(2)
 def show_activities():
     try:
-        with open("data.txt", "r") as file:
+        with open(DATA_FILE, "r") as file:
             lines = file.readlines()
 
         print("\n---- YOUR ACTIVITIES ----")
@@ -35,7 +36,7 @@ def show_activities():
 #funzione per eliminare un'attivitá dal file data.txt(3)
 def delete_activities():
     try:
-        with open("data.txt", "r") as file:
+        with open(DATA_FILE, "r") as file:
             lines = file.readlines()
 
         if len(lines) == 0:
@@ -72,7 +73,7 @@ def delete_activities():
         for index in sorted(valid_choices, reverse=True):
             lines.pop(index - 1)
 
-        with open("data.txt", "w") as file:
+        with open(DATA_FILE, "w") as file:
             file.writelines(lines)
 
         print("Selected activities deleted.")
@@ -84,7 +85,7 @@ def delete_activities():
 #funzione per cercare un'attivitá nel file data.txt(4)
 def search_activity():
      try:
-        with open("data.txt", "r")as file:
+        with open(DATA_FILE, "r")as file:
              lines = file.readlines()
         
         if len(lines) == 0:
