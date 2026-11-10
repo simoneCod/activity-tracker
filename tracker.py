@@ -3,7 +3,6 @@ from datetime import date
 DATA_FILE = "data.txt"
 
 
-#funzione per aggiungere un'attivitá al file data.txt(1)
 def add_activity() -> None:
     """Ask the user for an activity and save it with today's date."""
 
@@ -21,7 +20,6 @@ def add_activity() -> None:
     print("Activity saved!")
 
 
-#funzione per mostrare le attivitá salvate nel file data.txt(2)
 def show_activities() -> None:
     """Display all saved activities."""
 
@@ -40,9 +38,8 @@ def show_activities() -> None:
 
     for index, activity in enumerate(activities, start=1):
         print(f"{index}. {activity.strip()}")
-  
 
-#funzione per eliminare un'attivitá dal file data.txt(3)
+
 def delete_activities() -> None:
     """Delete one or more saved activities by their displayed number."""
 
@@ -101,9 +98,8 @@ def delete_activities() -> None:
         file.writelines(remaining_activities)
 
     print(f"Deleted {len(valid_indexes)} activity or activities.")
-            
 
-#funzione per cercare un'attivitá nel file data.txt(4)
+
 def search_activity() -> None:
     """Search saved activities by keyword."""
 
