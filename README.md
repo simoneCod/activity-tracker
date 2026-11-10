@@ -1,25 +1,55 @@
 # Activity Tracker
 
-A simple command-line application written in Python to record and manage daily activities.
+A Python command-line application for recording and managing daily activities.
+
+The application stores activities in a local text file and provides a simple menu for adding, viewing, searching and deleting entries.
 
 ## Features
 
-- Add a new activity with the current date
-- View all saved activities
-- Search activities by keyword
-- Delete one or more activities
-- Store data persistently in a text file
-- Handle missing files and invalid user input
+- Add an activity with the current date.
+- Display all saved activities.
+- Search activities by keyword (case-insensitive).
+- Delete one or more activities by their displayed numbers.
+- Persist data in a local text file.
+- Handle missing data files and invalid menu or activity input.
 
-## Technologies
+## Requirements
 
 - Python 3
-- Command-line interface
-- Functions
-- Loops and conditionals
-- Lists
-- File handling
-- Exception handling
+- No third-party packages required.
+
+## Getting Started
+
+Clone the repository:
+
+```bash
+git clone https://github.com/simoneCod/activity-tracker.git
+cd activity-tracker
+```
+
+Run the application:
+
+```bash
+python main.py
+```
+
+On some systems, the command may be:
+
+```bash
+python3 main.py
+```
+
+The application creates `data.txt` in the project directory when the first activity is saved. The file is intentionally excluded from version control through `.gitignore`, so personal activity data is not committed.
+
+## Menu
+
+```text
+1  - Add activity
+2  - Show activities
+3  - Delete activity
+4  - Search activity
+10 - Exit
+```
 
 ## Project Structure
 
@@ -32,53 +62,29 @@ activity-tracker/
 └── README.md
 ```
 
-## How to Run
+- `main.py` contains the command-line menu and application entry point.
+- `tracker.py` contains the functions for adding, displaying, deleting and searching activities.
+- `data.example.txt` provides sample activity entries for reference; the application uses `data.txt` for its own data.
+- `.gitignore` excludes local data and Python-generated files.
 
-The application automatically creates a local `data.txt` file when the first activity is saved. This file is ignored by Git to avoid publishing personal data.
+## Concepts Practiced
 
-1. Make sure Python 3 is installed.
-2. Clone the repository.
-3. Open a terminal inside the project folder.
-4. Run:
+- Python functions and modules.
+- Loops and conditional statements.
+- Lists and list comprehensions.
+- User input and basic validation.
+- Reading and writing text files.
+- Exception handling.
+- Separating the menu from application logic.
 
-```bash
-python main.py
-```
+## Possible Improvements
 
-## Menu
-
-```text
-1 - Add activity
-2 - Show activities
-3 - Delete activity
-4 - Search activity
-10 - Exit
-```
-
-## Purpose
-
-This project was created to practice Python fundamentals by building a complete command-line application with persistent data storage.
-
-Through this project, I practiced:
-
-- organizing code into separate files;
-- creating and calling functions;
-- reading and writing text files;
-- validating user input;
-- handling errors with `try` and `except`;
-- working with lists and loops.
-
-## Future Improvements
-
-- Add activity categories
-- Edit existing activities
-- Store data in JSON or SQLite
-- Add automated tests
-- Improve input validation
+- Add categories for activities.
+- Allow existing activities to be edited.
+- Introduce automated tests.
+- Improve validation and data handling.
+- Evaluate JSON or SQLite as alternative storage formats.
 
 ## Author
 
 **Simone Serio**
-
-Diploma in Informatics  
-Currently learning Linux, networking, Python and IT infrastructure.
